@@ -1,3 +1,4 @@
+word2vec_model
 # ---> Python
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -161,7 +162,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
