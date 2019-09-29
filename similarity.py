@@ -13,8 +13,7 @@ def get_dict(filepath):
                  '这个', '下', '或者', '能', '要', '怎么', '呢', '吧', '都']
     for line in fp:
         line = list(jieba.cut(line))
-        train.append([w for w in line if w not in stopwords])
-
+        train.append([w for w in line if w not in stopwords])‰
     dictionary = Dictionary(train)
     return dictionary, train
 
@@ -29,17 +28,17 @@ def train_model():
 
 def lda_sim(s1, s2):
     lda = models.ldamodel.LdaModel.load('test_lda.model')
-    test_doc = list(jieba.cut(s1))  
+    test_doc = list(jieba.cut(s1))
     dictionary = get_dict()[0]
-    doc_bow = dictionary.doc2bow(test_doc)  
-    doc_lda = lda[doc_bow]  
+    doc_bow = dictionary.doc2bow(test_doc)
+    doc_lda = lda[doc_bow]
     # print(doc_lda)
     list_doc1 = [i[1] for i in doc_lda]
     # print('list_doc1',list_doc1)
 
-    test_doc2 = list(jieba.cut(s2))  
-    doc_bow2 = dictionary.doc2bow(test_doc2)  
-    doc_lda2 = lda[doc_bow2]  
+    test_doc2 = list(jieba.cut(s2))
+    doc_bow2 = dictionary.doc2bow(test_doc2)
+    doc_lda2 = lda[doc_bow2]
     # print(doc_lda2)
     list_doc2 = [i[1] for i in doc_lda2]
     # print('list_doc2',list_doc2)
@@ -50,3 +49,7 @@ def lda_sim(s1, s2):
         sim = 0
     # 得到文档之间的相似度，越大表示越相近
     return sim
+
+
+if __name__ == "__main__":
+    print(sim(str(sys.argv[0]), str(sys.argv[1])))
