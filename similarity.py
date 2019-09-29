@@ -5,6 +5,7 @@ from gensim import corpora, models
 import numpy as np
 import jieba
 
+import sys
 
 def get_dict(filepath):
     train = []
@@ -13,7 +14,7 @@ def get_dict(filepath):
                  '这个', '下', '或者', '能', '要', '怎么', '呢', '吧', '都']
     for line in fp:
         line = list(jieba.cut(line))
-        train.append([w for w in line if w not in stopwords])‰
+        train.append([w for w in line if w not in stopwords])
     dictionary = Dictionary(train)
     return dictionary, train
 
@@ -52,4 +53,4 @@ def lda_sim(s1, s2):
 
 
 if __name__ == "__main__":
-    print(sim(str(sys.argv[0]), str(sys.argv[1])))
+    print(lda_sim(str(sys.argv[0]), str(sys.argv[1])))
