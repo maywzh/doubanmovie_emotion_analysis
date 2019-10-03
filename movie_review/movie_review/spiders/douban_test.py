@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import csv
-
-
+import logging
 import scrapy
 from scrapy.http import Request
 
@@ -26,7 +25,7 @@ class DouBanSpider(scrapy.Spider):
 
     def parse_default(self, response):
         review_list = response.xpath('//span[@class="short"]/text()').extract()
-        print(review_list)
+        logging.info(review_list)
         for review in review_list:
             review = review.strip()
             review = review.replace('\t', '')
