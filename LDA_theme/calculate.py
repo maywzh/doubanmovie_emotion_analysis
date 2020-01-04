@@ -1,9 +1,9 @@
+import codecs
 from gensim.models import LdaModel
 from gensim.corpora import Dictionary
 from gensim import corpora, models
 import numpy as np
 import jieba
-import codecs
 import tutorials.data_util as du
 
 def get_dict():
